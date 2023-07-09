@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailScreen(navController: NavController) {
+fun DetailScreen() {
     Scaffold {
         Text(text = "詳細画面")
     }

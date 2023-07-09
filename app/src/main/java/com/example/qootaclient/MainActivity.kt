@@ -41,6 +41,6 @@ class MainActivity : ComponentActivity() {
 fun MainNavHost(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "search") {
         composable("search") { SearchScreen(navController) }
-        composable("detail") { DetailScreen(navController) }
+        composable("detail") { DetailScreen() }
     }
 }
