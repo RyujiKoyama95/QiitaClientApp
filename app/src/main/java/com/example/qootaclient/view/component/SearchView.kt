@@ -66,7 +66,8 @@ fun SearchView(
         },
         singleLine = true,
         colors = TextFieldDefaults.textFieldColors(
-            cursorColor = Color.White,
+            textColor = Color.Black,
+            cursorColor = Color.Black,
 //          以下のパラメタは使用できない
 //            backgroundColor = MaterialTheme.colors.Purple700,
 //            leadingIconColor = Color.White,
