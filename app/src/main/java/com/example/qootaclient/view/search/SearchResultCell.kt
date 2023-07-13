@@ -40,7 +40,6 @@ fun SearchResultCell() {
             Spacer(modifier = Modifier.width(10.dp))
             Text(text = "@username")
         }
-        // 区切り線
         Divider()
     }
 }
