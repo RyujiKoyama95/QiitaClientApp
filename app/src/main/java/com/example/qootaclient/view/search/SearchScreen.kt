@@ -3,6 +3,8 @@ package com.example.qootaclient.view.search
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -27,6 +29,11 @@ fun SearchScreen(navController: NavController) {
             SearchView(textFieldState = textFieldState) {
                 // Todo: callback
             }
+            LazyColumn(content = {
+                items(30) {
+                    SearchResultCell()
+                }
+            })
             Text(text = "検索画面")
             Button(onClick = { navController.navigate("detail") }) {
                 Text(text = "詳細画面へ")
