@@ -1,5 +1,6 @@
 package com.example.qootaclient.view.component
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -14,6 +15,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
@@ -28,6 +30,8 @@ fun SearchView(
     textFieldState: MutableState<TextFieldValue>,
     onSubmit: (text: String) -> Unit
 ) {
+    SideEffect { Log.d("SearchView", "compose") }
+
     val focusManager = LocalFocusManager.current
 
     TextField(
