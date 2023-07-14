@@ -72,10 +72,6 @@ fun SearchView(
         colors = TextFieldDefaults.textFieldColors(
             textColor = Color.Black,
             cursorColor = Color.Black,
-//          以下のパラメタは使用できない
-//            backgroundColor = MaterialTheme.colors.Purple700,
-//            leadingIconColor = Color.White,
-//            trailingIconColor = Color.White,
         ),
         keyboardActions = KeyboardActions {
             focusManager.clearFocus()
