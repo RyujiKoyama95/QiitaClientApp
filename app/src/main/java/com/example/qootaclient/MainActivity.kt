@@ -36,8 +36,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "search") {
+    NavHost(navController = navController, startDestination = "detail") {
         composable("search") { SearchScreen(navController) }
-        composable("detail") { DetailScreen() }
+        composable("detail") { DetailScreen("https://qiita.com/masato_ishikawa/items/7dc44d3bf28aedf8d2e2") }
     }
 }
