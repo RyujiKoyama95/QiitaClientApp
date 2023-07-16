@@ -18,9 +18,10 @@ data class QiitaApiArticle(
 fun List<QiitaApiArticle>.asDatabaseModel(): List<Article> {
     return map {
         Article(
+            id = 0,
             url = it.url,
             title = it.title,
-            user = it.user
+            user = it.user as Article.User
         )
     }
 }
