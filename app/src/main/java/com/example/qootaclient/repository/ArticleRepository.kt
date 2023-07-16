@@ -1,13 +1,12 @@
 package com.example.qootaclient.repository
 
-import com.example.qootaclient.model.Article
+import com.example.qootaclient.model.QiitaApiArticle
+import com.example.qootaclient.network.QiitaService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.Url
 
 class ArticleRepository {
     companion object {
@@ -23,6 +22,6 @@ class ArticleRepository {
             .create(QiitaService::class.java)
     }
 
-    suspend fun searchArticle(query: String): List<Article>? =
+    suspend fun searchArticle(query: String): List<QiitaApiArticle>? =
         qiitaService.searchArticle(query).body()
 }
