@@ -1,7 +1,7 @@
 package com.example.qootaclient.repository
 
 import com.example.qootaclient.data.Article
-import com.example.qootaclient.data.Dao
+import com.example.qootaclient.data.ArticleDao
 import com.example.qootaclient.model.QiitaApiArticle
 import com.example.qootaclient.model.asDatabaseModel
 import com.example.qootaclient.network.QiitaService
@@ -11,7 +11,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class ArticleRepository(private val dao: Dao) {
+class ArticleRepository(private val dao: ArticleDao) {
     companion object {
         val qiitaService = Retrofit.Builder()
             .baseUrl(QiitaService.BASE_URL)

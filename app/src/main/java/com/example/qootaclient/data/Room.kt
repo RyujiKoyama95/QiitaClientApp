@@ -10,7 +10,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Dao
-interface Dao {
+interface ArticleDao {
     @Query("SELECT * FROM Article")
     suspend fun getArticles(): List<Article>
 
@@ -20,7 +20,7 @@ interface Dao {
 
 @Database(entities = [Article::class], version = 1, exportSchema = false)
 abstract class ArticleDatabase: RoomDatabase() {
-    abstract fun dao(): Dao
+    abstract fun dao(): ArticleDao
 
     companion object {
         private var INSTANCE: ArticleDatabase? = null
