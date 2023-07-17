@@ -13,20 +13,21 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.qootaclient.view.component.SearchView
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchScreen(navController: NavController) {
+fun SearchScreen(navController: NavController, searchViewModel: SearchViewModel = viewModel()) {
     Scaffold {
         Column {
             SideEffect { Log.d("SearchScreen", "compose") }
 
             val textFieldState = remember { mutableStateOf(TextFieldValue("")) }
             SearchView(textFieldState = textFieldState) {
-                // Todo: callback
+                searchViewModel.refreshArticles(it)
             }
             LazyColumn(content = {
                 items(30) {
