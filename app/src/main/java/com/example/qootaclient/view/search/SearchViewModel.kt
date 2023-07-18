@@ -14,7 +14,7 @@ class SearchViewModel(private val application: Application): ViewModel() {
     private val dao = ArticleDatabase.getDatabase(application).dao()
     private val repo = ArticleRepository(dao)
     private var _articles = MutableLiveData<List<Article>>()
-    val article: LiveData<List<Article>> = _articles
+    val articles: LiveData<List<Article>> = _articles
 
     fun refreshArticles(query: String) {
         viewModelScope.launch {

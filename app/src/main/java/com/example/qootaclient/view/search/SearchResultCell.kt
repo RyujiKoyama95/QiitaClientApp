@@ -18,18 +18,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.qootaclient.data.Article
 
 @Composable
-fun SearchResultCell() {
+fun SearchResultCell(article: Article) {
     Column(modifier = Modifier.padding(horizontal = 10.dp)) {
         Spacer(modifier = Modifier.height(10.dp))
-        Text(text = "記事タイトル")
+        Text(text = article.title)
         Row(
             modifier = Modifier.height(32.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
-                model = "https://assets.st-note.com/production/uploads/images/63638586/rectangle_large_type_2_036bad6b2400148e2bab52d71576f4cc.jpg",
+                model = article.user.profileImageUrl,
                 contentDescription = "author icon",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -38,7 +39,7 @@ fun SearchResultCell() {
                     .clip(CircleShape)
             )
             Spacer(modifier = Modifier.width(10.dp))
-            Text(text = "@username")
+            Text(text = "@${article.user.id}")
         }
         Divider()
     }
