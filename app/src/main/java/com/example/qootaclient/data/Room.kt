@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase
 
 @Dao
 interface ArticleDao {
-    @Query("SELECT * FROM Article")
+    @Query("SELECT * FROM article")
     suspend fun getArticles(): List<Article>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
