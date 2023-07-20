@@ -22,7 +22,7 @@ import com.example.qootaclient.view.component.SearchView
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchScreen(navController: NavController, searchViewModel: SearchViewModel = viewModel()) {
+fun SearchScreen(navController: NavController, searchViewModel: SearchViewModel) {
     Scaffold {
         Column {
             SideEffect { Log.d("SearchScreen", "compose") }

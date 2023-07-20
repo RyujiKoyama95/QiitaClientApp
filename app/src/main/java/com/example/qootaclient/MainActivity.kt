@@ -1,5 +1,6 @@
 package com.example.qootaclient
 
+import android.app.Application
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -10,6 +11,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -17,6 +20,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.qootaclient.ui.theme.QootaClientTheme
 import com.example.qootaclient.view.detail.DetailScreen
 import com.example.qootaclient.view.search.SearchScreen
+import com.example.qootaclient.view.search.SearchViewModel
+import com.example.qootaclient.view.search.SearchViewModelFactory
 
 class MainActivity : ComponentActivity() {
     companion object {
@@ -47,8 +52,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "search") {
-        composable("search") { SearchScreen(navController) }
-        composable("detail") { DetailScreen("https://qiita.com/masato_ishikawa/items/7dc44d3bf28aedf8d2e2") }
+    val owner = LocalViewModelStoreOwner.current
+    owner?.let {
+        val viewModel = viewModel<SearchViewModel>(
+            it,
+            "SearchViewModel",
+            SearchViewModelFactory(LocalContext.current.applicationContext as Application)
+        )
+        NavHost(navController = navController, startDestination = "search") {
+            composable("search") { SearchScreen(navController, viewModel) }
+            composable("detail") { DetailScreen("https://qiita.com/masato_ishikawa/items/7dc44d3bf28aedf8d2e2") }
+        }
     }
 }
