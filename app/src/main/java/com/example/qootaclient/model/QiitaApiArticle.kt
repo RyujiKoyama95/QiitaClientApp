@@ -10,10 +10,9 @@ data class QiitaApiArticle(
     @Json(name = "profile_image_url") val profileImageUrl: String
 )
 
-fun List<Article>.asDatabaseModel(): List<Article> {
+fun List<QiitaApiArticle>.asDatabaseModel(): List<Article> {
     return map {
         Article(
-            id = 0,
             url = it.url,
             title = it.title,
             userId = it.userId,

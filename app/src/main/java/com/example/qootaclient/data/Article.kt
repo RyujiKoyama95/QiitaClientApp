@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Article(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val url: String,
     val title: String,
     val userId: String,
