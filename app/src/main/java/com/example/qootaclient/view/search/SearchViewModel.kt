@@ -20,7 +20,7 @@ class SearchViewModel(private val application: Application): ViewModel() {
         viewModelScope.launch {
             repo.refreshArticles(query)
             val result = repo.getArticles()
-            _articles.postValue(result)
+            _articles.postValue(result ?: listOf())
         }
     }
 }
