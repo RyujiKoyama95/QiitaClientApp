@@ -41,7 +41,7 @@ fun SearchView(
         },
         modifier = Modifier
             .fillMaxWidth(),
-        textStyle = TextStyle(color = Color.White, fontSize = 18.sp),
+        textStyle = TextStyle(color = Color.Black, fontSize = 18.sp),
         leadingIcon = {
             Icon(
                 Icons.Default.Search,
@@ -76,6 +76,7 @@ fun SearchView(
         keyboardActions = KeyboardActions {
             focusManager.clearFocus()
             onSubmit(textFieldState.value.text)
+            Log.d("SearchView", "onSubmitted")
         }
     )
 }
