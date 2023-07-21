@@ -88,4 +88,8 @@ dependencies {
 
     // livedata
     implementation("androidx.compose.runtime:runtime-livedata:$rootProject.livedataVersion")
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+
 }
