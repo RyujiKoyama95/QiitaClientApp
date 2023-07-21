@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Dao
 interface ArticleDao {
@@ -19,6 +20,7 @@ interface ArticleDao {
 }
 
 @Database(entities = [Article::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class ArticleDatabase: RoomDatabase() {
     abstract fun dao(): ArticleDao
 
