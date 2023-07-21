@@ -30,7 +30,7 @@ fun SearchResultCell(article: Article) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
-                model = article.profileImageUrl,
+                model = article.user.profileImageUrl,
                 contentDescription = "author icon",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -39,7 +39,7 @@ fun SearchResultCell(article: Article) {
                     .clip(CircleShape)
             )
             Spacer(modifier = Modifier.width(10.dp))
-            Text(text = "@${article.userId}")
+            Text(text = "@${article.user.userId}")
         }
         Divider()
     }

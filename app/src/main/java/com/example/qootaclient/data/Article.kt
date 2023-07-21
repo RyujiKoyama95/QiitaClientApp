@@ -9,6 +9,10 @@ data class Article(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val url: String,
     val title: String,
-    val userId: String,
-    @ColumnInfo(name = "profile_image_url") val profileImageUrl: String
-)
+    val user: User
+) {
+    data class User(
+        val userId: String,
+        @ColumnInfo(name = "profile_image_url") val profileImageUrl: String
+    )
+}
