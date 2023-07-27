@@ -65,7 +65,7 @@ fun MainNavHost(navController: NavHostController) {
                 it.arguments?.getString("url")?.let { url ->
                     DetailScreen(url = url)
                 } ?: run { 
-                    DetailScreen(url = "https://qiita.com/masato_ishikawa/items/7dc44d3bf28aedf8d2e2")
+                    DetailScreen(url = "https://qiita.com/")
                 }
             }
         }
