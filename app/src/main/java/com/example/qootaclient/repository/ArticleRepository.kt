@@ -32,9 +32,9 @@ class ArticleRepository(private val dao: ArticleDao) {
      * API通信で取得したデータをローカルデータベースで保持する
      */
     suspend fun refreshArticles(query: String) {
-        val videos = qiitaService.searchArticle(query).body()
-        if (videos != null) {
-            dao.insertAll(videos.asDatabaseModel())
+        val articles = qiitaService.searchArticle(query).body()
+        if (articles != null) {
+            dao.insertAll(articles.asDatabaseModel())
         }
     }
 
