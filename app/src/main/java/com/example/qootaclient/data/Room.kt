@@ -3,6 +3,7 @@ package com.example.qootaclient.data
 import android.content.Context
 import androidx.room.Dao
 import androidx.room.Database
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -17,6 +18,9 @@ interface ArticleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(articles: List<Article>)
+
+    @Query("DELETE FROM article")
+    suspend fun deleteAll()
 }
 
 @Database(entities = [Article::class], version = 1, exportSchema = false)

@@ -34,6 +34,7 @@ class ArticleRepository(private val dao: ArticleDao) {
     suspend fun refreshArticles(query: String) {
         val articles = qiitaService.searchArticle(query).body()
         if (articles != null) {
+            dao.deleteAll()
             dao.insertAll(articles.asDatabaseModel())
         }
     }
