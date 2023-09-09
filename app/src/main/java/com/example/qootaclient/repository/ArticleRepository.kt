@@ -13,13 +13,13 @@ class ArticleRepository(private val dao: ArticleDao) {
      * API通信で取得したデータをローカルデータベースで保持する
      */
     suspend fun refreshArticles(query: String) {
-        val articles = searchArticle(query)
+        val articles = fetchArticle(query)
         dao.deleteAll()
         dao.insertAll(articles.asDatabaseModel())
     }
 
     suspend fun getArticles(): List<Article> = dao.getArticles()
 
-    private suspend fun searchArticle(query: String): List<QiitaArticleResponse> =
-        qiitaApiDataSource.searchArticle(query)
+    private suspend fun fetchArticle(query: String): List<QiitaArticleResponse> =
+        qiitaApiDataSource.fetchArticle(query)
 }

@@ -11,5 +11,5 @@ interface QiitaService {
     }
 
     @GET("api/v2/items?page=1&per_page=20")
-    suspend fun searchArticle(@Query("query") query: String): Response<List<QiitaArticleResponse>>
+    suspend fun fetchArticle(@Query("query") query: String): Response<List<QiitaArticleResponse>>
 }

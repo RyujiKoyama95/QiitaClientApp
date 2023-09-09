@@ -22,8 +22,8 @@ class QiitaApiDataSourceImpl: QiitaApiDataSource {
             .build()
             .create(QiitaService::class.java)
     }
-    override suspend fun searchArticle(query: String): List<QiitaArticleResponse> {
-        val response = qiitaService.searchArticle(query)
+    override suspend fun fetchArticle(query: String): List<QiitaArticleResponse> {
+        val response = qiitaService.fetchArticle(query)
         if (response.isSuccessful) {
             return requireNotNull(response.body())
         } else {
