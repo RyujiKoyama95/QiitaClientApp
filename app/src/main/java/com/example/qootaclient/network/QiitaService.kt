@@ -1,6 +1,6 @@
 package com.example.qootaclient.network
 
-import com.example.qootaclient.model.QiitaApiArticle
+import com.example.qootaclient.model.QiitaArticleResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,5 +11,5 @@ interface QiitaService {
     }
 
     @GET("api/v2/items?page=1&per_page=20")
-    suspend fun searchArticle(@Query("query") query: String): Response<List<QiitaApiArticle>>
+    suspend fun searchArticle(@Query("query") query: String): Response<List<QiitaArticleResponse>>
 }

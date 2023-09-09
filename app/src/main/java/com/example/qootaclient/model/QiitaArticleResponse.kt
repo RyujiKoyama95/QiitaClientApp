@@ -3,7 +3,7 @@ package com.example.qootaclient.model
 import com.example.qootaclient.data.Article
 import com.squareup.moshi.Json
 
-data class QiitaApiArticle(
+data class QiitaArticleResponse(
     val url: String,
     val title: String,
     val user: User
@@ -14,7 +14,7 @@ data class QiitaApiArticle(
     )
 }
 
-fun List<QiitaApiArticle>.asDatabaseModel(): List<Article> {
+fun List<QiitaArticleResponse>.asDatabaseModel(): List<Article> {
     return map {
         Article(
             url = it.url,

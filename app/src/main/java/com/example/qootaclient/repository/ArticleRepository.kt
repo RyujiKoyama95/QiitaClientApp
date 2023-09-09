@@ -2,7 +2,7 @@ package com.example.qootaclient.repository
 
 import com.example.qootaclient.data.Article
 import com.example.qootaclient.data.ArticleDao
-import com.example.qootaclient.model.QiitaApiArticle
+import com.example.qootaclient.model.QiitaArticleResponse
 import com.example.qootaclient.model.asDatabaseModel
 import com.example.qootaclient.network.QiitaService
 import com.squareup.moshi.Moshi
@@ -25,7 +25,7 @@ class ArticleRepository(private val dao: ArticleDao) {
             .create(QiitaService::class.java)
     }
 
-    suspend fun searchArticle(query: String): List<QiitaApiArticle>? =
+    suspend fun searchArticle(query: String): List<QiitaArticleResponse>? =
         qiitaService.searchArticle(query).body()
 
     /**
